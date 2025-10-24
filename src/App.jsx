@@ -3,6 +3,8 @@ import Home from "./pages/Home";
 import ProductContainer from "./pages/ProductContainer";
 import ProductList from "./pages/ProductList";
 import ProductCard from "./pages/ProductCard";
+import ProductForm from "./pages/ProductForm";
+import ErrorPage from "./pages/ErrorPage";
 import './App.css'
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
             <Route path=":id" element={<ProductCard />} />
             <Route path="new" element={<ProductForm />} />
           </Route>
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </>
