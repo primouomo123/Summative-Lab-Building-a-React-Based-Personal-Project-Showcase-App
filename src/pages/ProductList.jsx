@@ -1,8 +1,15 @@
+import React from "react";
+import { useOutletContext } from "react-router-dom";
+import ProductCard from "./ProductCard";
+
 function ProductList() {
+    const { products } = useOutletContext();
+
     return (
-        <div>
-            <h1>Product List</h1>
-            <p>Product list will be displayed here...</p>
+        <div className="products-container">
+            {products.map(product => (
+                <ProductCard key={product.id} product={product} />
+            ))}
         </div>
     );
 }

@@ -1,8 +1,12 @@
-function ProductCard() {
+import React from "react";
+
+function ProductCard({ product }) {
     return (
-        <div>
-            <h1>Product Details</h1>
-            <p>Individual product details will be displayed here...</p>
+        <div className="product-card">
+            <h3 className="product-name">{product.name}</h3>
+            <p className="product-origin">Origin: {product.origin}</p>
+            <p className="product-price">${product.price}</p>
+            <p className="product-description">{product.description}</p>
         </div>
     );
 }
