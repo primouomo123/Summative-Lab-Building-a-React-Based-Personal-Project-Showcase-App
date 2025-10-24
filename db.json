@@ -1,0 +1,109 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Wireless Bluetooth Headphones",
+      "description": "Over-ear, noise-canceling, 20h battery.",
+      "origin": "USA",
+      "price": 99.99
+    },
+    {
+      "id": 2,
+      "name": "Smartwatch Series 5",
+      "description": "Heart-rate monitor, GPS, waterproof.",
+      "origin": "China",
+      "price": 149.99
+    },
+    {
+      "id": 3,
+      "name": "Portable Charger 10000mAh",
+      "description": "Compact fast-charging power bank.",
+      "origin": "Germany",
+      "price": 29.99
+    },
+    {
+      "id": 4,
+      "name": "Gaming Keyboard RGB",
+      "description": "Mechanical keys, RGB lighting.",
+      "origin": "Taiwan",
+      "price": 79.99
+    },
+    {
+      "id": 5,
+      "name": "4K UHD Monitor",
+      "description": "27-inch, HDR, ultra HD display.",
+      "origin": "South Korea",
+      "price": 329.99
+    },
+    {
+      "id": 6,
+      "name": "Wireless Mouse",
+      "description": "Ergonomic, adjustable DPI, long battery.",
+      "origin": "China",
+      "price": 25.99
+    },
+    {
+      "id": 7,
+      "name": "Noise-Canceling Earbuds",
+      "description": "Compact earbuds with ANC.",
+      "origin": "Japan",
+      "price": 59.99
+    },
+    {
+      "id": 8,
+      "name": "Fitness Tracker Band",
+      "description": "Step counter and sleep monitor.",
+      "origin": "USA",
+      "price": 39.99
+    },
+    {
+      "id": 9,
+      "name": "Digital Camera 20MP",
+      "description": "High-res camera with optical zoom.",
+      "origin": "Germany",
+      "price": 249.99
+    },
+    {
+      "id": 10,
+      "name": "Smart Home Speaker",
+      "description": "Voice-controlled, smart home ready.",
+      "origin": "USA",
+      "price": 89.99
+    },
+    {
+      "id": 11,
+      "name": "Laptop Stand Adjustable",
+      "description": "Aluminum ergonomic stand.",
+      "origin": "China",
+      "price": 35.99
+    },
+    {
+      "id": 12,
+      "name": "External Hard Drive 2TB",
+      "description": "Portable, fast USB 3.0 drive.",
+      "origin": "South Korea",
+      "price": 99.99
+    },
+    {
+      "id": 13,
+      "name": "LED Desk Lamp",
+      "description": "Adjustable brightness, energy-efficient.",
+      "origin": "Japan",
+      "price": 45.99
+    },
+    {
+      "id": 14,
+      "name": "Wireless Earphones",
+      "description": "Compact, clear sound, charging case.",
+      "origin": "China",
+      "price": 49.99
+    },
+    {
+      "id": 15,
+      "name": "Electric Kettle",
+      "description": "1.7L, rapid boil, auto shut-off.",
+      "origin": "Germany",
+      "price": 59.99
+    }
+  ]
+}
