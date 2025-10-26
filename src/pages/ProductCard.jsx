@@ -21,9 +21,9 @@ function ProductCard({ product }) {
                     <p className="product-origin">Origin: {product.origin}</p>
                     <p className="product-price">${product.price}</p>
                     <p className="product-description">{product.description}</p>
+                    <button className="edit-button" onClick={handleEditToggle}>Edit</button>
                 </>
             )}
-            <button className="edit-button" onClick={handleEditToggle}>Edit</button>
         </div>
     );
 }
