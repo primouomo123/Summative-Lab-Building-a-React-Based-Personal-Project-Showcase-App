@@ -170,3 +170,100 @@ main {
 .read-the-docs {
   color: #888;
 }
+
+/* Edit Form Styling */
+.edit-form {
+  background: #f8f9fa;
+  border: 2px solid #4299e1;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.edit-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.edit-form label {
+  display: block;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.edit-form input,
+.edit-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.edit-form input:focus,
+.edit-form textarea:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+.edit-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.form-buttons button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+}
+
+.form-buttons button[type="submit"] {
+  background: #48bb78;
+  color: white;
+}
+
+.form-buttons button[type="submit"]:hover {
+  background: #38a169;
+  transform: translateY(-1px);
+}
+
+.form-buttons button[type="button"] {
+  background: #e53e3e;
+  color: white;
+}
+
+.form-buttons button[type="button"]:hover {
+  background: #c53030;
+  transform: translateY(-1px);
+}
+
+.edit-button {
+  background: #4299e1;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 1rem;
+  transition: all 0.2s ease;
+}
+
+.edit-button:hover {
+  background: #3182ce;
+  transform: translateY(-1px);
+}
