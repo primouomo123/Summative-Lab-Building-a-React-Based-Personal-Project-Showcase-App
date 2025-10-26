@@ -1,22 +1,86 @@
 #root {
-  max-width: 1200px;
   width: 100%;
   min-height: 100vh;
-  margin: 0 auto;
-  padding: 0 1rem;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 
-/* Products Container - Flexbox Layout */
+/* Layout Container for Sidebar */
+.layout-container {
+  display: flex;
+  gap: 0;
+  align-items: flex-start;
+  min-height: calc(100vh - 120px);
+  justify-content: flex-start;
+  text-align: left;
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Sidebar Styling */
+aside {
+  width: 250px;
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-left: none;
+  border-radius: 0 12px 12px 0;
+  padding: 1.5rem;
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin: 0;
+}
+
+aside h3 {
+  color: #1a365d;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+/* Search Input Styling */
+aside input[type="text"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+aside input[type="text"]:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+/* Main Content Area */
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+/* Products Container - Flexible Flexbox Layout */
 .products-container {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 2rem 0;
+  width: 100%;
 }
 
-/* Product Card - Professional Box Style */
+/* Product Card - Flexible Professional Box Style */
 .product-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
@@ -24,7 +88,9 @@
   padding: 1.75rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
-  width: 300px;
+  flex: 1 1 250px;
+  min-width: 250px;
+  max-width: 320px;
   text-align: center;
   margin-bottom: 1rem;
 }
