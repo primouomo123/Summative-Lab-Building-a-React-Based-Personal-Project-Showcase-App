@@ -37,7 +37,9 @@ function NewProductForm() {
     };
 
     return (
-        <form className="edit-form" onSubmit={handleSubmit}>
+        <>
+            <h2>Add New Product</h2>
+            <form className="edit-form" onSubmit={handleSubmit}>
             <div className="form-group">
                 <label htmlFor={nameId}>Name:</label>
                 <input
@@ -93,6 +95,7 @@ function NewProductForm() {
                 <button type="submit">Save</button>
             </div>
         </form>
+        </>
     );
 }
 
