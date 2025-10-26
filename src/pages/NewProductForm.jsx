@@ -1,21 +1,26 @@
+import React, {useState, useEffect, useRef, useContext, useId} from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ProductContext } from '../context/ProductContext';
 
-import React, { useState, useContext, useId } from "react";
-import { ProductContext } from "../context/ProductContext";
+function NewProductForm() {
+    const { addProduct } = useContext(ProductContext);
+    const navigate = useNavigate();
+    const [formData, setFormData] = useState({
+        name: '',
+        origin: '',
+        price: '',
+        description: ''
+    });
 
-function EditForm({ product, setEditToggle }) {
-    const { updateProduct } = useContext(ProductContext);
+    const inputRef = useRef(null);
+    useEffect(() => {
+        inputRef.current.focus();
+    }, []);
 
     const nameId = useId();
     const originId = useId();
     const priceId = useId();
     const descriptionId = useId();
-    
-    const [formData, setFormData] = useState({
-        name: product.name,
-        origin: product.origin,
-        price: product.price,
-        description: product.description
-    });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -27,21 +32,16 @@ function EditForm({ product, setEditToggle }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        updateProduct(product.id, formData)
-            .then(() => {
-                setEditToggle(false); // Close the edit form after successful update
-            })
-            .catch((error) => {
-                console.error("Error updating product:", error);
-                alert("Error updating product. Please try again.");
-            });
+        addProduct(formData)
+        navigate('/products');
     };
 
     return (
         <form className="edit-form" onSubmit={handleSubmit}>
             <div className="form-group">
                 <label htmlFor={nameId}>Name:</label>
-                <input 
+                <input
+                    ref={inputRef}
                     type="text" 
                     id={nameId}
                     name="name" 
@@ -91,10 +91,9 @@ function EditForm({ product, setEditToggle }) {
             
             <div className="form-buttons">
                 <button type="submit">Save</button>
-                <button type="button" onClick={() => setEditToggle(false)}>Cancel</button>
             </div>
         </form>
     );
 }
 
-export default EditForm;
+export default NewProductForm;

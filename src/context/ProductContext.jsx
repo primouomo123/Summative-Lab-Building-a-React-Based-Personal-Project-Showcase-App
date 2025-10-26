@@ -76,6 +76,29 @@ export const ProductProvider = ({ children }) => {
         });
     };
 
+    const addProduct = (newProduct) => {
+        fetch(`http://localhost:5000/products`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newProduct)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(addedProduct => {
+            setProducts(prev => [...prev, addedProduct]);
+        })
+        .catch(error => {
+            console.error("Error adding product:", error);
+            throw error;
+        });
+    };
+
     const value = {
         products,
         search,
@@ -91,7 +114,8 @@ export const ProductProvider = ({ children }) => {
         handleSearchChange,
         setSearch,
         updateProduct,
-        deleteProduct
+        deleteProduct,
+        addProduct
     };
 
     return (

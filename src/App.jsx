@@ -2,8 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home";
 import ProductContainer from "./pages/ProductContainer";
 import ProductList from "./pages/ProductList";
-import ProductCard from "./pages/ProductCard";
-import ProductForm from "./pages/ProductForm";
+import NewProductForm from "./pages/NewProductForm";
 import ErrorPage from "./pages/ErrorPage";
 import './App.css'
 
@@ -15,7 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<ProductContainer />}>
             <Route path="" element={<ProductList />} />
-            <Route path="new" element={<ProductForm />} />
+            <Route path="new" element={<NewProductForm />} />
           </Route>
           <Route path="*" element={<ErrorPage />} />
         </Routes>
