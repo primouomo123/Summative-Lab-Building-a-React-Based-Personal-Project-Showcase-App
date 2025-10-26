@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import EditForm from "./EditForm";
+import { ProductContext } from "../context/ProductContext";
 
 function ProductCard({ product }) {
     const [editToggle, setEditToggle] = useState(false);
+    const { deleteProduct } = useContext(ProductContext);
 
     const handleEditToggle = () => {
         setEditToggle(prev => !prev);
@@ -21,7 +23,10 @@ function ProductCard({ product }) {
                     <p className="product-origin">Origin: {product.origin}</p>
                     <p className="product-price">${product.price}</p>
                     <p className="product-description">{product.description}</p>
-                    <button className="edit-button" onClick={handleEditToggle}>Edit</button>
+                    <div className="button-container">
+                        <button className="edit-button" onClick={handleEditToggle}>Edit</button>
+                        <button className="delete-button" onClick={() => deleteProduct(product.id)}>Delete</button>
+                    </div>
                 </>
             )}
         </div>
