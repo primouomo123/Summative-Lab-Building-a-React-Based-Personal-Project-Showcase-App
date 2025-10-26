@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 function useRetrieveData(url) {
-    const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [retrieveData, setData] = useState(null);
+    const [retrieveLoading, setLoading] = useState(true);
+    const [retrieveError, setRetrieveError] = useState(null);
 
     useEffect(() => {
         setLoading(true);
@@ -17,14 +17,14 @@ function useRetrieveData(url) {
         })
         .then(setData)
         .catch(err => {
-            setError(err.message);
+            setRetrieveError(err.message);
             console.log(err);
         })
         .finally(() => setLoading(false));
 
     }, [url])
 
-    return { data, loading, error };
+    return { retrieveData, retrieveLoading, retrieveError };
 }
 
 export default useRetrieveData;

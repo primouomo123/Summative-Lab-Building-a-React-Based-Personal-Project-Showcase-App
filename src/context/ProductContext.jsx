@@ -5,17 +5,17 @@ import useEditData from '../hooks/useEditData';
 const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
-    const { data, loading, error } = useRetrieveData("http://localhost:5000/products");
+    const { retrieveData, retrieveLoading, retrieveError } = useRetrieveData("http://localhost:5000/products");
     const { updateData } = useEditData();
     const [products, setProducts] = useState([]);
     const [search, setSearch] = useState("");
     const [selectedOrigins, setSelectedOrigins] = useState([]);
 
     useEffect(() => {
-        if (data) {
-            setProducts(data);
+        if (retrieveData) {
+            setProducts(retrieveData);
         }
-    }, [data]);
+    }, [retrieveData]);
 
     const origins = [...new Set(products.map(p => p.origin))];
 
@@ -60,12 +60,28 @@ export const ProductProvider = ({ children }) => {
             });
     };
 
+    const deleteProduct = (id) => {
+        fetch(`http://localhost:5000/products/${id}`, {
+            method: "DELETE",
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            setProducts(prev => prev.filter(product => product.id !== id));
+        })
+        .catch(error => {
+            console.error("Error deleting product:", error);
+            throw error;
+        });
+    };
+
     const value = {
         products,
         search,
         selectedOrigins,
-        loading,
-        error,
+        loading: retrieveLoading,
+        error: retrieveError,
         
         origins,
         filteredByOrigin,
@@ -75,6 +91,7 @@ export const ProductProvider = ({ children }) => {
         handleSearchChange,
         setSearch,
         updateProduct,
+        deleteProduct
     };
 
     return (
