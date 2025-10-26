@@ -15,7 +15,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<ProductContainer />}>
             <Route path="" element={<ProductList />} />
-            <Route path=":id" element={<ProductCard />} />
             <Route path="new" element={<ProductForm />} />
           </Route>
           <Route path="*" element={<ErrorPage />} />
