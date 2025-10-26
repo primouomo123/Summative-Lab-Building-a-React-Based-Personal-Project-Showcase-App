@@ -1,10 +1,10 @@
-import React from "react";
-import { useOutletContext } from "react-router-dom";
+import React, { useContext } from "react";
 import ProductCard from "./ProductCard";
 import Search from "../components/Search";
+import { ProductContext } from "../context/ProductContext";
 
 function ProductList() {
-    const { searchedProducts, search, setSearch, origins, selectedOrigins, handleOriginChange } = useOutletContext();
+    const { searchedProducts, search, setSearch, origins, selectedOrigins, handleOriginChange } = useContext(ProductContext);
 
     console.log("searchedProducts:", searchedProducts);
 
