@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+/* I created this custom hook to handle editing data with loading and error states
+and I wanted to practice creating custom hooks in React */
 function useEditData() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);

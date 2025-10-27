@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import EditForm from "./EditForm";
+import EditForm from "../components/EditForm";
 import { ProductContext } from "../context/ProductContext";
 
 function ProductCard({ product }) {
@@ -12,7 +12,10 @@ function ProductCard({ product }) {
 
     return (
         <div className="product-card">
-            {editToggle ? (
+            {
+            /* If editToggle is true, it will render the EditForm component, otherwise
+            it will render the product details */
+            editToggle ? (
                 <EditForm 
                     product={product} 
                     setEditToggle={setEditToggle} 
@@ -24,6 +27,7 @@ function ProductCard({ product }) {
                     <p className="product-price">${product.price}</p>
                     <p className="product-description">{product.description}</p>
                     <div className="button-container">
+                        {/* These buttons allow the user to edit or delete the product */}
                         <button className="edit-button" onClick={handleEditToggle}>Edit</button>
                         <button className="delete-button" onClick={() => deleteProduct(product.id)}>Delete</button>
                     </div>

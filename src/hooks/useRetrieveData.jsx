@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+/* I've created this custom hook to handle retrieving data with loading and error states
+and I wanted to practice creating custom hooks in React */
 function useRetrieveData(url) {
     const [retrieveData, setData] = useState(null);
     const [retrieveLoading, setLoading] = useState(true);

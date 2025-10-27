@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import { ProductContext } from '../context/ProductContext';
 import { vi } from 'vitest';
 
@@ -59,11 +59,11 @@ export const renderWithProviders = (ui, options = {}) => {
 
   function Wrapper({ children }) {
     return (
-      <BrowserRouter>
+      <MemoryRouter initialEntries={initialEntries}>
         <ProductContext.Provider value={contextValue}>
           {children}
         </ProductContext.Provider>
-      </BrowserRouter>
+      </MemoryRouter>
     );
   }
 
@@ -75,7 +75,7 @@ export const renderWithRouter = (ui, options = {}) => {
   const { initialEntries = ['/'], ...renderOptions } = options;
 
   function Wrapper({ children }) {
-    return <BrowserRouter>{children}</BrowserRouter>;
+    return <MemoryRouter initialEntries={initialEntries}>{children}</MemoryRouter>;
   }
 
   return render(ui, { wrapper: Wrapper, ...renderOptions });
