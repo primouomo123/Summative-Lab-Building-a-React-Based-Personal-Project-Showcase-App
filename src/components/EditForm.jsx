@@ -5,6 +5,7 @@ import { ProductContext } from "../context/ProductContext";
 function EditForm({ product, setEditToggle }) {
     const { updateProduct } = useContext(ProductContext);
 
+    // I've created unique IDs for each form field using useId
     const nameId = useId();
     const originId = useId();
     const priceId = useId();

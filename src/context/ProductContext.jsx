@@ -2,11 +2,14 @@ import React, { createContext, useState, useEffect } from 'react';
 import useRetrieveData from '../hooks/useRetrieveData';
 import useEditData from '../hooks/useEditData';
 
+/* I created this file to manage product-related state and actions, so I don't have all this
+code in ProductContainer.jsx */
 const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
+    // Custom hook to retrieve and edit data
     const { retrieveData, retrieveLoading, retrieveError } = useRetrieveData("http://localhost:5000/products");
-    const { updateData } = useEditData();
+    const { updateData } = useEditData(); // I only need updateData from this custom hook
     const [products, setProducts] = useState([]);
     const [search, setSearch] = useState("");
     const [selectedOrigins, setSelectedOrigins] = useState([]);
@@ -17,8 +20,11 @@ export const ProductProvider = ({ children }) => {
         }
     }, [retrieveData]);
 
+    /* This is to get unique product origins, so I can later create dynamic origin checkboxes
+    in the Search.jsx component */
     const origins = [...new Set(products.map(p => p.origin))];
 
+    // This is to handle origin checkbox changes
     const handleOriginChange = (origin) => {
         if (selectedOrigins.includes(origin)) {
             setSelectedOrigins(prev => prev.filter(o => o !== origin));
@@ -27,10 +33,12 @@ export const ProductProvider = ({ children }) => {
         }
     };
 
+    // This is to handle search input changes
     const handleSearchChange = (searchValue) => {
         setSearch(searchValue);
     };
 
+    // First, I filter by origin
     const filteredByOrigin = products.filter(p => {
         if (selectedOrigins.length === 0) {
             return true;
@@ -38,6 +46,7 @@ export const ProductProvider = ({ children }) => {
         return selectedOrigins.includes(p.origin);
     });
 
+    // Then, I filter by search term
     const searchedProducts = filteredByOrigin.filter(p => {
         return p.name.toLowerCase().includes(search.toLowerCase()) ||
                p.origin.toLowerCase().includes(search.toLowerCase()) ||

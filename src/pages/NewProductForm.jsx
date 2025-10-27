@@ -4,7 +4,7 @@ import { ProductContext } from '../context/ProductContext';
 
 function NewProductForm() {
     const { addProduct } = useContext(ProductContext);
-    const navigate = useNavigate();
+    const navigate = useNavigate(); // useNavigate hook to programmatically navigate
     const [formData, setFormData] = useState({
         name: '',
         origin: '',
@@ -12,11 +12,14 @@ function NewProductForm() {
         description: ''
     });
 
+    /* I've used the useRef hook in useEffect to focus the name input field when the
+    component mounts */
     const inputRef = useRef(null);
     useEffect(() => {
         inputRef.current.focus();
     }, []);
 
+    // I've created unique IDs for each form field using useId
     const nameId = useId();
     const originId = useId();
     const priceId = useId();
@@ -33,7 +36,7 @@ function NewProductForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         addProduct(formData)
-        navigate('/products');
+        navigate('/products'); // Navigate to the products page after adding a new product
     };
 
     return (
