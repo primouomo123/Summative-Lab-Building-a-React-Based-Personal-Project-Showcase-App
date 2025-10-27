@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { vi } from 'vitest';
 import { renderWithProviders, mockContextValue } from '../testUtils.jsx';
 import NewProductForm from '../../pages/NewProductForm.jsx';
-import EditForm from '../../pages/EditForm.jsx';
+import EditForm from '../../components/EditForm.jsx';
 import ProductList from '../../pages/ProductList.jsx';
 
 describe('CRUD Operations', () => {

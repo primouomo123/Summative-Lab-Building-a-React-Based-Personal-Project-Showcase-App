@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import EditForm from "./EditForm";
+import EditForm from "../components/EditForm";
 import { ProductContext } from "../context/ProductContext";
 
 function ProductCard({ product }) {
